@@ -1,0 +1,12 @@
+gdown==4.6.0
+lightning==2.0.4
+numpy
+pandas
+rich==13.4.2
+scipy
+tqdm==4.65.0
+transformers
+wandb
+scikit-learn
+pydantic==1.10.11
+jsonargparse[signatures]>=4.17.0
