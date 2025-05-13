@@ -59,37 +59,6 @@ class SavePredictionCallback(Callback):
             'y': []
         }
 
-    # def on_validation_batch_end(
-    #     self,
-    #     trainer: Trainer,
-    #     pl_module: LightningModule,
-    #     outputs: STEP_OUTPUT | None,
-    #     batch: Any,
-    #     batch_idx: int,
-    #     dataloader_idx: int = 0,
-    # ) -> None:
-    #     label_names = trainer.train_dataloader.dataset.label_names
-    #     text, tokenized_text, y, reciprocal_ids, frequencies, label_mask = batch
-    #     text, preds = outputs
-    #     preds *= label_mask
-    #     label_similarities, label_ids = preds.topk(100, dim=1)
-    #     y = self.find_indices_of_ones_per_row(y)
-
-
-    #     self.predictions['text'] += text
-    #     self.predictions['labels'] += label_names[label_ids.cpu().detach().numpy().tolist()].tolist()
-    #     self.predictions['label_ids'] += label_ids.cpu().detach().numpy().tolist()
-    #     self.predictions['similarities'] += label_similarities.cpu().detach().numpy().tolist()
-
-    #     self.predictions['y'] += ([label_names[i].tolist() for i in y])
-
-    # def on_validation_epoch_end(
-    #     self, trainer: pl.Trainer, pl_module: pl.LightningModule
-    # ) -> None:
-    #     df = pd.DataFrame.from_dict(self.predictions)
-    #     df.to_csv('predictions.csv')
-    #     print('saved predictions')
-
     def on_test_batch_end(
         self,
         trainer: Trainer,
